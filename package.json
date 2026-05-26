@@ -1,0 +1,55 @@
+{
+  "name": "vs-code-ext-json-crud-ui-init",
+  "displayName": "crud ui init",
+  "description": "Generate Ui for Json Crud",
+  "publisher": "KeshavSoft",
+  "type": "module",
+  "version": "1.3.2",
+  "engines": {
+    "vscode": "^1.116.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/keshavsoft/vs-code-ext-json-crud-ui-init.git"
+  },
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.editor.title.appjs.startEndpoint",
+        "title": "StartEndpoint"
+      }
+    ],
+    "menus": {
+      "explorer/context": [],
+      "editor/context": [],
+      "editor/title": [
+        {
+          "command": "extension.editor.title.appjs.startEndpoint",
+          "when": "resourceFilename == app.js",
+          "group": "navigation@2"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.116.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "eslint": "^9.39.3",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2"
+  },
+  "dependencies": {
+    "kschema-api-gen-appjs": "^1.4.2"
+  }
+}
