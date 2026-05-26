@@ -1,18 +1,16 @@
-import fs from 'fs';
-import path from 'path';
 import * as vscode from 'vscode';
 
 import { initHeaderFromCdn } from "json-crud-ui-init";
 
 export async function runFeatureOrchestration({ context }) {
+    const inContext = context;
     const endpoint = await getEndpoint();
-    if (!endpoint) return null;
 
     await initHeaderFromCdn({
         showLog: true,
         isAnnounce: true,
         folderName: endpoint,
-        toPath: path.join(context.targetPath, endpoint)
+        toPath: inContext.rightClickPath
     });
 
     return { endpoint };

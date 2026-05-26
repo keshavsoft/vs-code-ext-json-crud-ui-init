@@ -13,7 +13,7 @@ export async function startOrchestration({ uri }) {
             appJsPath: context.appJsPath
         });
 
-        const result = await runFeatureOrchestration({ context, log });
+        const result = await runFeatureOrchestration({ context });
         if (!result) return;
 
         openRoutesFile(`${context.targetPath}/${result.endpoint}`);
