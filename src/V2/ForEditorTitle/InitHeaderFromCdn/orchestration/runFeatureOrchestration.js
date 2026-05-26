@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import * as vscode from 'vscode';
 
-import StartEndPoint from "kschema-api-gen-appjs";
+import StartEndPoint from "json-crud-ui-init";
 
 import { fileURLToPath } from 'url';
 import { copyTemplate } from '../services/copyTemplate.js';

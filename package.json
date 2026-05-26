@@ -20,8 +20,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "extension.editor.title.appjs.startEndpoint",
-        "title": "StartEndpoint"
+        "command": "extension.editor.title.folder.ui.init",
+        "title": "Ui Init"
       }
     ],
     "menus": {
@@ -29,8 +29,8 @@
       "editor/context": [],
       "editor/title": [
         {
-          "command": "extension.editor.title.appjs.startEndpoint",
-          "when": "resourceFilename == app.js",
+          "command": "extension.editor.title.folder.ui.init",
+          "when": "explorerResourceIsFolder",
           "group": "navigation@2"
         }
       ]
@@ -50,6 +50,6 @@
     "@vscode/test-electron": "^2.5.2"
   },
   "dependencies": {
-    "kschema-api-gen-appjs": "^1.4.2"
+    "json-crud-ui-init": "^1.4.3"
   }
 }
