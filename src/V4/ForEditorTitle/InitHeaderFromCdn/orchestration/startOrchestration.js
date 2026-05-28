@@ -21,5 +21,5 @@ export async function startOrchestration({ uri }) {
         finalize({
             message: `Endpoint '${result.endpoint}' created 🚀`
         });
-    } catch (e) { log('ERROR'); throw e; }
+    } catch (e) { console.log('ERROR'); throw e; }
 };
