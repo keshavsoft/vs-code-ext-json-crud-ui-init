@@ -4,7 +4,7 @@
   "description": "Generate Ui for Json Crud",
   "publisher": "KeshavSoft",
   "type": "module",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "engines": {
     "vscode": "^1.116.0"
   },
