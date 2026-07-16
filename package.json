@@ -4,7 +4,7 @@
   "description": "Generate Ui for Json Crud",
   "publisher": "KeshavSoft",
   "type": "module",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "engines": {
     "vscode": "^1.116.0"
   },
@@ -22,13 +22,23 @@
       {
         "command": "extension.editor.title.folder.ui.init",
         "title": "Ui Init"
+      },
+      {
+        "command": "extension.explorer.right.public.init",
+        "title": "InitFromScript"
       }
     ],
     "menus": {
       "explorer/context": [
         {
           "command": "extension.editor.title.folder.ui.init",
-          "when": "explorerResourceIsFolder",
+          "when1": "explorerResourceIsFolder",
+          "when": "explorerResourceIsFolder && resourceFilename == Public",
+          "group": "navigation@2"
+        },
+        {
+          "command": "extension.explorer.right.public.init",
+          "when": "explorerResourceIsFolder && resourceFilename == Public",
           "group": "navigation@2"
         }
       ],
@@ -50,6 +60,6 @@
     "@vscode/test-electron": "^2.5.2"
   },
   "dependencies": {
-    "json-crud-ui-init": "^1.5.1"
+    "json-crud-ui-init": "^1.7.2"
   }
 }
