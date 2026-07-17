@@ -13,7 +13,7 @@ export async function handleWebviewMessage({ message, panel, toPath,
             break;
 
         case "simple":
-            addSimple({
+            await addSimple({
                 panel,
                 toPath,
                 inFolderName: message.inFolderName,

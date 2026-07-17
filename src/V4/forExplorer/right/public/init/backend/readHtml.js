@@ -50,6 +50,9 @@ const findHeadersJsonPath = (startDir) => {
 };
 
 const extractIdsFromJson = (inJsonPath) => {
+    if (!inJsonPath) {
+        return [];
+    }
     const headersJsonPath = path.join(inJsonPath, 'headers.json');
 
     try {
@@ -77,16 +80,15 @@ const activateHtml = (context, uri) => {
     panel.webview.html = getHtmlWithScripts();
 
     panel.webview.onDidReceiveMessage(async (message) => {
-        const { userRootFolder, schemasPath, folderPath, port } = getWorkspaceContext(uri);
+        const { userRootFolder, rightClickPath, folderPath, port } = getWorkspaceContext(uri);
         const headersJsonPath = findHeadersJsonPath(folderPath);
         const ids = extractIdsFromJson(headersJsonPath);
 
         await handleWebviewMessage({
             message,
             panel,
-            toPath: folderPath,
+            toPath: rightClickPath,
             port,
-            inTargetPath: userRootFolder,
             ids
         });
     });

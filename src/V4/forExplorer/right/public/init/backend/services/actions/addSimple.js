@@ -1,8 +1,8 @@
 import { fromScriptJs } from 'json-crud-ui-init';
 import { executeGenerationTask } from "../generatorService.js";
 
-const startFunc = ({ panel, toPath, inFolderName }) => {
-    executeGenerationTask({
+const startFunc = async ({ panel, toPath, inFolderName }) => {
+    await executeGenerationTask({
         panel,
         actionLabel: "Add simple boilerPlate",
         toPath,

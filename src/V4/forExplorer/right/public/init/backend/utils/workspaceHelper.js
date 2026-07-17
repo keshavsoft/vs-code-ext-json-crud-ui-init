@@ -20,11 +20,12 @@ export function getWorkspaceContext(uri) {
     const schemasPath = userRootFolder ? path.join(userRootFolder, "Config", "Schemas") : undefined;
     const folderPath = path.dirname(uri.fsPath);
     const port = getPortFromEnv(userRootFolder);
+    const rightClickPath = uri.fsPath;
 
     return {
         userRootFolder,
         schemasPath,
         folderPath,
-        port
+        port, rightClickPath
     };
 }
