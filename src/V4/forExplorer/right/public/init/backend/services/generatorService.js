@@ -1,4 +1,4 @@
-export async function executeGenerationTask({
+export function executeGenerationTask({
     panel,
     actionLabel,
     toPath,

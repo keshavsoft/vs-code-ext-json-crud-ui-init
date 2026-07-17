@@ -79,12 +79,12 @@ const activateHtml = (context, uri) => {
 
     panel.webview.html = getHtmlWithScripts();
 
-    panel.webview.onDidReceiveMessage(async (message) => {
+    panel.webview.onDidReceiveMessage((message) => {
         const { userRootFolder, rightClickPath, folderPath, port } = getWorkspaceContext(uri);
         const headersJsonPath = findHeadersJsonPath(folderPath);
         const ids = extractIdsFromJson(headersJsonPath);
 
-        await handleWebviewMessage({
+        handleWebviewMessage({
             message,
             panel,
             toPath: rightClickPath,

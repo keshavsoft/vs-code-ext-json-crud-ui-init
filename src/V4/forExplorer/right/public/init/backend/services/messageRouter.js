@@ -1,6 +1,7 @@
 import addSimple from "./actions/addSimple.js";
+import addCrud from "./actions/addCrud.js";
 
-export async function handleWebviewMessage({ message, panel, toPath,
+export function handleWebviewMessage({ message, panel, toPath,
     port, ids = [] }) {
 
     switch (message.action) {
@@ -13,7 +14,7 @@ export async function handleWebviewMessage({ message, panel, toPath,
             break;
 
         case "simple":
-            await addSimple({
+            addSimple({
                 panel,
                 toPath,
                 inFolderName: message.inFolderName,
@@ -21,5 +22,15 @@ export async function handleWebviewMessage({ message, panel, toPath,
             });
 
             break;
-    }
+
+        case "crud":
+            addCrud({
+                panel,
+                toPath,
+                inFolderName: message.inFolderName,
+                inPort: port
+            });
+
+            break;
+    };
 }

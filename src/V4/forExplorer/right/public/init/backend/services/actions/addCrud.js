@@ -4,9 +4,9 @@ import { executeGenerationTask } from "../generatorService.js";
 const startFunc = ({ panel, toPath, inFolderName }) => {
     executeGenerationTask({
         panel,
-        actionLabel: "Add simple boilerPlate",
+        actionLabel: "Add Crud boilerPlate",
         toPath,
-        generateFunc: fromScriptJs.simple,
+        generateFunc: fromScriptJs.crud,
         inFolderName
     });
 };

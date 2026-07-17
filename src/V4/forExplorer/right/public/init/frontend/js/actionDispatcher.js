@@ -19,3 +19,7 @@ function getFolderName(defaultValue = "") {
 function insertSimple() {
     sendAction("simple", { tableName: getSelectedTable(), inFolderName: getFolderName(getSelectedTable()) });
 };
+
+function insertCrud() {
+    sendAction("crud", { tableName: getSelectedTable(), inFolderName: getFolderName(getSelectedTable()) });
+};
