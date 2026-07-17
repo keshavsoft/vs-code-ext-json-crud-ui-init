@@ -1,13 +1,12 @@
 import { fromScriptJs } from 'json-crud-ui-init';
 import { executeGenerationTask } from "../generatorService.js";
 
-const startFunc = ({ panel, tableName, toPath, inFolderName }) => {
-    fromScriptJs.simple({
+const startFunc = ({ panel, toPath, inFolderName }) => {
+    executeGenerationTask({
         panel,
-        actionLabel: "Add Table Name",
-        tableName,
+        actionLabel: "Add simple boilerPlate",
         toPath,
-        generateFunc: hookListener,
+        generateFunc: fromScriptJs.simple,
         inFolderName
     });
 };

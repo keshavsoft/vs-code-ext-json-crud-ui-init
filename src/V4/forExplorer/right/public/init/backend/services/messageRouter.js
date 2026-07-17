@@ -1,7 +1,7 @@
 import addSimple from "./actions/addSimple.js";
 
 export async function handleWebviewMessage({ message, panel, toPath,
-    port, inTargetPath, ids = [] }) {
+    port, ids = [] }) {
 
     switch (message.action) {
         case "loadSchemas":
@@ -13,14 +13,13 @@ export async function handleWebviewMessage({ message, panel, toPath,
             break;
 
         case "simple":
-            await addSimple({
+            addSimple({
                 panel,
-                tableName: message.tableName,
                 toPath,
                 inFolderName: message.inFolderName,
-                inTargetPath,
                 inPort: port
             });
+
             break;
     }
 }

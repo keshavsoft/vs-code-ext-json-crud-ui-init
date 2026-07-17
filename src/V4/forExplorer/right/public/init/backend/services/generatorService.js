@@ -1,7 +1,6 @@
-export async function executeGenerationTask({
+export function executeGenerationTask({
     panel,
     actionLabel,
-    tableName,
     toPath,
     generateFunc,
     inFolderName
@@ -13,8 +12,6 @@ export async function executeGenerationTask({
 
     try {
         const funcToRun = generateFunc({
-            showLog: true,
-            isAnnounce: true,
             folderName: inFolderName || "",
             toPath
         });
@@ -33,7 +30,6 @@ export async function executeGenerationTask({
                     ✅ Generation Complete
                 </div>
                 <div><b>Action:</b> ${actionLabel}</div>
-                ${tableName ? `<div><b>Table:</b> ${tableName}</div>` : ""}
                 <div><b>Output:</b> ${toPath}</div>
             `
         });
