@@ -2,13 +2,13 @@ import addSimple from "./actions/addSimple.js";
 import addCrud from "./actions/addCrud.js";
 
 export function handleWebviewMessage({ message, panel, toPath,
-    port, ids = [] }) {
+    port, tableSchemas = [] }) {
 
     switch (message.action) {
         case "loadSchemas":
             panel.webview.postMessage({
                 type: "schemas",
-                ids
+                tableSchemas
             });
 
             break;

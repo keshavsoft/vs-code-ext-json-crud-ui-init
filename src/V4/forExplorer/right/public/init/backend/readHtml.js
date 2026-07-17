@@ -5,6 +5,7 @@ import path from 'path';
 import { getHtmlWithScripts } from "./utils/htmlLoader.js";
 import { handleWebviewMessage } from "./services/messageRouter.js";
 import { getWorkspaceContext } from "./utils/workspaceHelper.js";
+import getConfigPath from "./getConfigPath.js";
 
 const findHtmlFolder = (startDir) => {
     let currentDir = path.resolve(startDir);
@@ -82,14 +83,14 @@ const activateHtml = (context, uri) => {
     panel.webview.onDidReceiveMessage((message) => {
         const { userRootFolder, rightClickPath, folderPath, port } = getWorkspaceContext(uri);
         const headersJsonPath = findHeadersJsonPath(folderPath);
-        const ids = extractIdsFromJson(headersJsonPath);
+        const tableSchemas = getConfigPath(userRootFolder);
 
         handleWebviewMessage({
             message,
             panel,
             toPath: rightClickPath,
             port,
-            ids
+            tableSchemas
         });
     });
 };
